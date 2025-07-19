@@ -3,6 +3,7 @@ Backend Technologies:
   - PostgreSQL
   - Flask-SQLAlchemy
     - Flask extenstion that integrates SQLAlchemy with Flask apps
+    - Python library
     - Install Cmd: pip install Flask-SQLAlchemy
   - PostgreSQL suport
     - Needed for Flask-SQLAlchemy to connect to PostgreSQL database
