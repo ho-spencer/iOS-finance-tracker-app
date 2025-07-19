@@ -29,6 +29,15 @@ created_at: time user created their account
 ### Transactions Table
 id: table transaction id
 user_id: links each transaction to the user (using a foreign key)
+account_id: Plaid's account ID (to distinguish between banks and credit cards)
+transaction_name: merchant name / transaction description
+transaction_amount: transaction amount
+transaction_date: transaction date
+transaction_category: transaction category like "Food", "Travel", etc.
+transaction_type: payment, refund, etc.
+plaid_id: store the unique identifier that Plaid assigns to a record (such as transaction id, account id, item id)
+  - When pulling data from Plaid, each object has a stable, globally unique identifier --> store this ID in the database
+  - helps prevent duplicate data (ex: check if a transaction is already stored in the database)
 
   'id':
     - Data Type: integer
@@ -47,3 +56,29 @@ user_id: links each transaction to the user (using a foreign key)
       - Referenced Table (References): 'users' (public.users)
       - Referenced Column (Referencing): 'id'    ('id' column in the 'users' table)
     Note: Every value in transactions.user_id must match an existing users.id.
+
+  'account_id':
+    - Data Type: integer
+    - Not Null: yes
+
+  'transaction_name':
+    - Data Type: text
+    - Not Null: yes
+
+  'transaction_amount':
+    - Data Type: nummeric(10, 2)
+      Precision: 10 --> total digits the number can hold before AND after the decimal
+      Scale: 2 --> number of digits to the right of the decimal point
+
+  'transaction_date':
+    - Data Type: date
+
+  'transaction_category':
+    - Data Type: text[]    (array of text values, allows multiple categories)
+
+  'transaction_type':
+    - Data Type: text
+
+  'plaid_id':
+    - Data Type: text
+    - Constraints -> Unique
