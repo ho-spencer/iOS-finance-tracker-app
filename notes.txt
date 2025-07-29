@@ -13,3 +13,16 @@ Backend Technologies:
 Setting up .env:
   - Flask environment, secret key, database url created
   - Install Cmd: pip install python-dotenv
+
+Setting up config.py (Flask configuration name and description)
+  - SECRET_KEY: get the secret key from .env
+  - SQLALCHEMY_DATABASE_URI
+    - Get the database URL from .env
+    - How SQLAlchemy connects with the database
+    - "SQLALCHEMY_DATABASE_URI" is a common Flask configuration name
+  - SQLALCHEMY_TRACK_MODIFICATIONS
+    - Tracks object changes (if set to True)
+    - Setting to false reduces overhead and uses less memory
+  - DEBUG
+    - enable debug mode in development
+    - "os.getenv("DEBUG", "False") == "True"" allows us to control the setting from the .env file
