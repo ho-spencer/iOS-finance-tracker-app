@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy     # Initialize SQLAlchemy
 
 # Load .env into my Flask app
 from dotenv import load_dotenv
@@ -10,6 +11,8 @@ from config import Config   # Import Config
 ## ------- SERVER URL: http://127.0.0.1:5000/ 
 app = Flask(__name__)               # create a Flask app instance
 app.config.from_object(Config)      # Pass the Config class to Flask and load settings from config.py
+
+db = SQLAlchemy(app)                # Initialize SQLAlchemy (bind it to the Flask app)
 
 
 # Route to appURL/ping to test the server
