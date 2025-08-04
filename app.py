@@ -13,6 +13,7 @@ app = Flask(__name__)               # create a Flask app instance
 app.config.from_object(Config)      # Pass the Config class to Flask and load settings from config.py
 
 db = SQLAlchemy(app)                # Initialize SQLAlchemy (bind it to the Flask app)
+                                    # passing in "app" allows SQLAlchemy to read the app's config setup from config.py
 
 
 # Route to appURL/ping to test the server
