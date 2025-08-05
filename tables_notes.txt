@@ -53,7 +53,7 @@ plaid_id: store the unique identifier that Plaid assigns to a record (such as tr
     - Not Null: yes
     - Constraints -> Foreign Key:
       - Local Column: 'user_id'    (column that is referencing another table)
-      - Referenced Table (References): 'users' (public.users)
+      - Referenced Table (References): 'users'   (public.users)
       - Referenced Column (Referencing): 'id'    ('id' column in the 'users' table)
     Note: Every value in transactions.user_id must match an existing users.id.
 

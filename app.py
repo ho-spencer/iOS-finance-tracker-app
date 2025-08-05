@@ -12,8 +12,9 @@ from config import Config   # Import Config
 app = Flask(__name__)               # create a Flask app instance
 app.config.from_object(Config)      # Pass the Config class to Flask and load settings from config.py
 
-db = SQLAlchemy(app)                # Initialize SQLAlchemy (bind it to the Flask app)
+db = SQLAlchemy(app)                # Bind SQLAlchemy to my Flask App (db oject)
                                     # passing in "app" allows SQLAlchemy to read the app's config setup from config.py
+                                    # db object is an instance of the SQLAlchemy class from flask_sqlalchemy
 
 
 # Route to appURL/ping to test the server
