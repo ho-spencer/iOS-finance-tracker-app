@@ -63,3 +63,11 @@ Setup Flask-Migrate
     - flask db init: setup migrations folder (initialize version control for database schema)
     - flask db migrate -m "Initial Migration": use to track migrations / detect changes in the models (-m "" is the message, like a git commit message)
     - flask db upgrade: apply model changes to the database
+
+
+App Login Route
+  - use a JSON API endopint for the login Route instead of HTML (JSON API endpoint only sends a POST request, instead of both GET and POST)
+    - HTML route serves a web form (in the browser) to login to the app
+    - using a JSON API endpoint returns JSON and allows the app's UI for the login
+    - imported 'request' from Flask
+      - 'request' object is provided by Flask - contains data from HTTP request

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy     # Initialize SQLAlchemy
 from flask_migrate import Migrate           # Flask-Migrate
 
@@ -21,8 +21,32 @@ migrate = Migrate(app, db)          # connect Flask-Migrate to the Flask app (ap
 
 # Route to appURL/ping to test the server
 @app.route('/ping', methods = ["GET"])
-def pint():
+def print():
     return "PING WORKS"
+
+
+# Login Route
+@app.route("/applogin", methods = ["POST"])
+def applogin():
+    login_data = request.get_json()             # use requset.get_json() to read the JSON sent in the POST request
+    username = login_data.get("username")       # get the username
+    password = login_data.get("password")       # get the password
+
+    #--- VALIDATE LOGIN HERE ---
+
+
+# Link Bank Route
+
+
+# Get Daily Transactions Route
+
+
+# Get Weekly Transactions Route
+
+
+# Get Monthly Transactions Route
+
+
 
 
 
