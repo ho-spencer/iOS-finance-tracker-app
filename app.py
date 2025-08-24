@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy     # Initialize SQLAlchemy
+from flask_migrate import Migrate           # Flask-Migrate
 
 # Load .env into my Flask app
 from dotenv import load_dotenv
@@ -16,6 +17,7 @@ db = SQLAlchemy(app)                # Bind SQLAlchemy to my Flask App (db oject)
                                     # passing in "app" allows SQLAlchemy to read the app's config setup from config.py
                                     # db object is an instance of the SQLAlchemy class from flask_sqlalchemy
 
+migrate = Migrate(app, db)          # connect Flask-Migrate to the Flask app (app) and SQLAlchemy database (db)
 
 # Route to appURL/ping to test the server
 @app.route('/ping', methods = ["GET"])

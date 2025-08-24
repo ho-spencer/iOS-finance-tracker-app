@@ -51,3 +51,15 @@ Define Models (models.py)
     - same as "sqlalchemy.Column()
   "from flask_sqlalchemy import SQLAlchemy" --> db = SQLAlchemy() 
     - gives me access oto the SQLAlchemy column types
+
+
+Setup Flask-Migrate
+  - setup flask-migrate to setup migrations with my existing schema
+  - allows Flask to manage any future schema changes (allows us to not have to use pgAdmin when add/removing columns from our table)
+  - "pip install flask-migrate"
+  - migrate = Migrate(app, db)
+    - allows Flask to manage migrations
+  - Initialize migrations (in venv, run these commands)
+    - flask db init: setup migrations folder (initialize version control for database schema)
+    - flask db migrate -m "Initial Migration": use to track migrations / detect changes in the models (-m "" is the message, like a git commit message)
+    - flask db upgrade: apply model changes to the database
