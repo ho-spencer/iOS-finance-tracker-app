@@ -24,7 +24,11 @@ migrate = Migrate(app, db)          # connect Flask-Migrate to the Flask app (ap
 def print():
     return "PING WORKS"
 
-
+'''
+=======================
+*   MAIN APP ROUTES   *
+=======================
+'''
 # Login Route
 @app.route("/applogin", methods = ["POST"])
 def applogin():
